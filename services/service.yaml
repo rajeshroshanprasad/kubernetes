@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fleetman-webapp
+
+spec:
+  #this define which pods are represented by this service
+  selector:
+    app: webapp
+  ports:
+    - name : http
+      port: 80
+  type: LoadBalancer
