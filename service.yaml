@@ -11,4 +11,28 @@ spec:
   ports:
     - name : http
       port: 80
-  type: LoadBalancer
+      nodePort: 30080  
+  
+  type: NodePort 
+
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: fleetman-queue
+  labels: 
+    app: queue 
+spec:
+  #this define which pods are represented by this service
+  selector:
+    app: queue 
+
+  ports:
+    - name : http
+      port: 8161
+      nodePort: 30010
+
+  type: NodePort
