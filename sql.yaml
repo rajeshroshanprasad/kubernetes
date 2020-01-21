@@ -3,16 +3,16 @@ kind: Pod
 metadata:
   name: fleetman-mysql
   label:
-    app: mysql
+    app: mysql 
 spec:
-  containers:
+  containers: # container name and all the components 
     - name: mysql
       image: mysql:5
       env:
         - name: MYSQL_ROOT_PASSWORD
-          value: password 
+          value: password #this is the password
         - name : MYSQL_DATABASE
-          value: fleetman 
+          value: fleetman # this is the name of the db
           
 
 ---
@@ -27,3 +27,11 @@ spec:
   ports:
   - port: 3306      
   type: ClusterIP
+
+
+  #ways to connect to the db from the webapp container 
+  # kubectl exec -it webapp sh 
+  # apk for alpine : apk update 
+  # apk add mysql-client
+  # connect to the sql : mysql -h database -uroot -ppassword fleetman 
+  
