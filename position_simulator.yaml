@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: position-simulator
+spec:
+  selector:
+    matchLabels:
+      app: position-simulator
+  replicas: 1
+  template: # template for the pod
+    metadata:
+      labels:
+        app: position-simulator
+    spec:
+      containers:
+      - name: webapp
+        image: richardchesterwood/k8s-fleetman-position-simulator:release1
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: production-microservice 
+
+
+
+# port 8161 :expose this to the browser using 300010 and port 61616 is used to send and receive messages 
+
+ 
