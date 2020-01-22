@@ -1,0 +1,30 @@
+#what do you want ???
+# I want a PVC - Persistent Volume Claim
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-pvc # this should match the name in the mongo file.
+spec:
+  #this is mapping of both of them
+  storageClassName: cloud-ssd # these are labels 
+  accessModes:
+    - ReadWriteOnce #labels 
+  resources:
+    requests:
+      storage: 10Gi   #this will look for a volume which provide 10 gb of volume. #labels
+
+---
+
+#how do we want to implement it 
+
+apiVersion: storage.k8s.io/v1
+kind: storageClass
+metadata:
+  name: cloud-ssd
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: gp2
+
+
+#cmd: kubectl get pv ; kubectl get pvc 

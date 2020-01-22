@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: queue 
+spec:
+  selector:
+    matchLabels:
+      app: queue 
+  replicas: 1
+  template: # template for the pod
+    metadata:
+      labels:
+        app: queue 
+    spec:
+      containers:
+      - name: webapp
+        image: richardchesterwood/k8s-fleetman-queue:release1 
+
+
+# port 8161 :expose this to the browser using 300010 and port 61616 is used to send and receive messages 
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: fleetman-queue
+  
+spec:
+  #this define which pods are represented by this service
+  selector:
+    app: queue 
+
+  ports:
+    - name : http
+      port: 8161
+      nodePort: 30010
+
+    - name: endpoint
+      port: 61616
+
+  type: NodePort
+
