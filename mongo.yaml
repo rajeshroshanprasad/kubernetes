@@ -15,7 +15,18 @@ spec:
       containers:
       - name: mongodb
         image: mongodb:4.2.2-bionic
-        
+        volumeMounts:
+          - name: mongo-persistent-storage
+            mountPath: /data/db #Pod mongodb store data in this folder, so this folder is mapped to volumes.
+
+      volumes:
+        - name: mongo-persistent-storage
+          #pointer to the config of how to implement the mount.
+          persistentVolumeClaim:
+            claimName: mongo-pvc
+
+
+# the mongo-persistent-storage is stored outside the pod on the storage device volume. 
 ---
 
 apiVersion: v1

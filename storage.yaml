@@ -1,0 +1,33 @@
+#what do you want ???
+# I want a PVC - Persistent Volume Claim
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-pvc # this should match the name in the mongo file.
+spec:
+  #this is mapping of both of them
+  storageClassName: mylocalstorage
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi   #this will look for a volume which provide 10 gb of volume.
+
+---
+
+#how do we want to implement it 
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: local-storage
+spec:
+  storageClassName: mylocalstorage  
+  capacity:
+    storage: 20Gi 
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/this/folder/"
+    type: DirectoryOrCreate
