@@ -7,12 +7,12 @@ metadata:
   name: mongo-pvc # this should match the name in the mongo file.
 spec:
   #this is mapping of both of them
-  storageClassName: mylocalstorage
+  storageClassName: mylocalstorage # these are labels 
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteOnce #labels 
   resources:
     requests:
-      storage: 10Gi   #this will look for a volume which provide 10 gb of volume.
+      storage: 10Gi   #this will look for a volume which provide 10 gb of volume. #labels
 
 ---
 
@@ -23,11 +23,14 @@ kind: PersistentVolume
 metadata:
   name: local-storage
 spec:
-  storageClassName: mylocalstorage  
+  storageClassName: mylocalstorage  #labels 
   capacity:
     storage: 20Gi 
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteOnce #labels
   hostPath:
     path: "/mnt/this/folder/"
     type: DirectoryOrCreate
+
+
+#cmd: kubectl get pv ; kubectl get pvc 
