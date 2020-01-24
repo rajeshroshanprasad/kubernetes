@@ -6,3 +6,4 @@ aws ec2 describe-availability-zones --region <resgion name>
 fluentd-elasticsearch:  https://github.com/kubernetes/kubernetes/tree/master/cluster/addons
 *** https://github.com/kubernetes/kubernetes/tree/master/cluster/addons   
 ingresss nginx: kubernetes.github.io/ingress-nginx
+https://kubernetes.github.io/ingress-nginx/examples/auth/basic/
