@@ -7,3 +7,4 @@ fluentd-elasticsearch:  https://github.com/kubernetes/kubernetes/tree/master/clu
 *** https://github.com/kubernetes/kubernetes/tree/master/cluster/addons   
 ingresss nginx: kubernetes.github.io/ingress-nginx
 https://kubernetes.github.io/ingress-nginx/examples/auth/basic/
+helm: https://github.com/helm/helm
