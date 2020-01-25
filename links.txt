@@ -9,3 +9,4 @@ ingresss nginx: kubernetes.github.io/ingress-nginx
 https://kubernetes.github.io/ingress-nginx/examples/auth/basic/
 helm: https://github.com/helm/helm
 https://helm.sh/
+** helm download :  https://get.helm.sh/helm-v3.0.2-linux-amd64.tar.gz
