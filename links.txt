@@ -1,3 +1,4 @@
+https://aws.amazon.com/quickstart/architecture/amazon-eks/
 https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#pod-v1-core
 https://github.com/kubernetes/kops
 https://github.com/DickChesterwood/k8s-fleetman
